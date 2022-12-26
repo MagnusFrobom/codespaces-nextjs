@@ -2,6 +2,10 @@ import { useCallback, useEffect, useState } from 'react'
 import Button from '../components/Button'
 import ClickCount from '../components/ClickCount'
 import styles from '../styles/home.module.css'
+import Head from 'next/head';
+import Link from 'next/link';
+import { getPosts } from '../lib/api';
+
 
 function throwError() {
   console.log(
@@ -10,7 +14,7 @@ function throwError() {
   )
 }
 
-function Home() {
+function Home({ posts }) {
   const [count, setCount] = useState(0)
   const increment = useCallback(() => {
     setCount((v) => v + 1)
